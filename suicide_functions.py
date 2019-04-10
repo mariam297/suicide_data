@@ -1,14 +1,15 @@
 from suicide_file_reader import BudgetFileReader
 
-reader = BudgetFileReader("suicide_rate_data.xlsx")   #make an instance
-x = reader.print_all_cell_data()
+reader = BudgetFileReader("suicide_rate_data.xlsx")
+x = reader.print_all_cell_data()                         #shows all the data from excel file
 
-def suicide_no(entry):
+
+def suicide_no(entry):                                  #defining a function
     return entry[4]
 
 def top(year, number):
     print("Top suicide rates: ")
-    list1 = sorted(x[1:], key = suicide_no, reverse=True)
+    list1 = sorted(x[1:], key = suicide_no, reverse=True)       #sorting the excel file data
     counter = 0
     for row in list1:
         if counter < number:
@@ -25,11 +26,11 @@ def compare_gender(country, year, age):
     male_suicide_no = 0
     female_suicide_no = 0
     for row in x[1:]:
-        if row[0] == country:
+        if row[0] == country:                       #first column in excel file is country
             if row[1] == year:
                 if row[3] == age:
                     if row[2] == "male":
-                        male_suicide_no = row[4]
+                        male_suicide_no = row[4]    #creating a variable for column 3 in excel file
                         print(row)
                     else:
                         female_suicide_no = row[4]
@@ -44,12 +45,12 @@ def compare_gender(country, year, age):
 
 def average_suicide(year):
     print("Average suicide number:")
-    total_suicide_no = 0     #Set to zero in order to compute a calculation
+    total_suicide_no = 0                                     #Set to zero in order to compute a calculation
     number_of_countries = 0
     for column in x[1:]:
         if column[1] == year:
             if column[4] != 0:
-                total_suicide_no += column[4]
+                total_suicide_no += column[4]               #adds the entries from column 3 in excel file
                 number_of_countries += 1
     average_suicide_no = total_suicide_no/number_of_countries
     average_suicide_no = round(average_suicide_no)
@@ -78,7 +79,7 @@ def percentage_of_suicide_no(country, year, gender, age):
 
 
 def average_suicide_age(age):
-    total_suicide_no = 0     #Set to zero in order to compute a calculation
+    total_suicide_no = 0                                  #Set to zero in order to compute a calculation
     number_of_countries = 0
     for column in x[1:]:
         if column[3] == age:
