@@ -75,3 +75,18 @@ def percentage_of_suicide_no(country, year, gender, age):
     suicide_values = round(suicide_values, 5)
 
     print("{:.5f}%".format(suicide_values))
+
+
+def average_suicide_age(age):
+    total_suicide_no = 0     #Set to zero in order to compute a calculation
+    number_of_countries = 0
+    for column in x[1:]:
+        if column[3] == age:
+            total_suicide_no += column[4]
+            number_of_countries += 1
+    average_suicide_age = total_suicide_no/number_of_countries
+    average_suicide_age = round(average_suicide_age, 2)
+    return average_suicide_age
+
+def print_average_suicide_age(age):
+    print(age + ": " + str(average_suicide_age(age)))
