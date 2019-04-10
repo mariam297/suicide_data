@@ -1,7 +1,10 @@
 from suicide_file_reader import BudgetFileReader
 
-reader = BudgetFileReader("suicide_rate_data.xlsx")
-x = reader.print_all_cell_data()                         #shows all the data from excel file
+try:
+    reader = BudgetFileReader("suicide_rate_data.xlsx")
+    x = reader.print_all_cell_data()
+except FileNotFoundError:
+    print("Sorry this file does not exist")
 
 
 def suicide_no(entry):                                  #defining a function
@@ -64,7 +67,7 @@ def percentage_of_suicide_no(country, year, gender, age):
     print("Percentage of suicide rates")
     suicide_number = 0
     population = 0
-    for row in x[1:]:
+    for row in x[1:]:                                   #does not take into account the headers from excel file
         if row[0] == country:
             if row[1] == year:
                 if row[2] == gender:

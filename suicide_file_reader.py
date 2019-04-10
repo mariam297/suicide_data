@@ -28,17 +28,3 @@ reader = BudgetFileReader("suicide_rate_data.xlsx")   #make an instance
 x = reader.print_all_cell_data()  #running the method
 
 
-
-
-
-
-
-
-# def country_and_life_expectancy(rank):
-#     for item in x[1:]:
-#         if item[0] == rank:         #The item is a tuple because you cant change or add values whereas in a list you can. The [0] represents the first column which is rank in execel file
-#             print(item[1] + " " + str(item[2]))  #the item[1] means printing the 2nd column (country) and item[2] means printing third column (life expectancy)
-#
-# print("                             ")
-# print("Rank:")
-# country_and_life_expectancy(6)
