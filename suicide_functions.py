@@ -16,10 +16,9 @@ def top(year, number):
                 print(row)
                 counter += 1
 
+
 def gender(entry):
     return entry[3]
-
-print("                                    ")
 
 def compare_gender(country, year, age):
     print("Comparing suicide rates and genders")
@@ -42,8 +41,6 @@ def compare_gender(country, year, age):
     else:
         print("The entries you have entered does not exist!")
 
-print("                 ")
-
 
 def average_suicide(year):
     print("Average suicide number:")
@@ -58,7 +55,6 @@ def average_suicide(year):
     average_suicide_no = round(average_suicide_no)
     print(average_suicide_no)
 
-print("                               ")
 
 def population(entry):
     return entry[5]
