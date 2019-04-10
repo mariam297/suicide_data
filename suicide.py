@@ -28,18 +28,7 @@ class BudgetFileReader:
 reader = BudgetFileReader("suicide_rate_data.xlsx")   #make an instance
 x = reader.print_all_cell_data()  #running the method
 
-# print("Top 10 suicide rates:")
-# print("-----------------------")
-# for column in x[1:]:
-#     if column[0] <= 10:
-#         print(column[1] + " " + str(column[2]) + " " + str(column[4]) + " " + str(column[5]))
-#
-# print("Lowest 10 suicide rates:")
-# print("-------------------------")
-# for column in x[1:]:
-#     if column[0] >= 27811:
-#         if column[5] != 0:
-#             print(column[1] + " " + str(column[2]) + " " + str(column[4]) + " " + str(column[5]))
+
 
 def suicide_no(entry):
     return entry[4]
@@ -49,23 +38,51 @@ def population(entry):
 
 list2 = sorted(x[1:], key= population)
 
-
-def top_10(year, number):
-    list1 = sorted(x[1:], key=suicide_no, reverse=True)
+print("Top suicide rates: ")
+def top(year, number):
+    list1 = sorted(x[1:], key = suicide_no, reverse=True)
     counter = 0
     for row in list1:
         if counter < number:
             if row[1] == year:
                 print(row)
                 counter += 1
+top(1995, 10)
 
 
-top_10(1995, 1)
+def gender(entry):
+    return entry[3]
+
+print("                                    ")
+
+def compare_gender(country, year, age):
+    print("Comparing suicide rates and genders")
+    male_suicide_no = 0
+    female_suicide_no = 0
+    for row in x[1:]:
+        if row[0] == country:
+            if row[1] == year:
+                if row[3] == age:
+                    if row[2] == "male":
+                        male_suicide_no = row[4]
+                        print(row)
+                    else:
+                        female_suicide_no = row[4]
+                        print(row)
+    if male_suicide_no > female_suicide_no:
+        print("Male suicide is higher than female suicide!")
+    elif female_suicide_no < male_suicide_no:
+        print("Female suicide is  higher than male suicide!")
+    else:
+        print("The entries you have entered does not exist!")
+
+
+compare_gender("Japan", 2012, "35-54 years")
+
+print("                 ")
 
 
 
-
-#
 # for item in x[1:]:
 #     if item[0] >= 214:
 #         print(item[1] + " " + str(item[2]))
