@@ -6,13 +6,12 @@ Using different functions and methods, the average suicide number was calculated
 
 
 ## Process of the Project
--1) Read the file on python by importing the excel file
+1) Read the file on python by importing the excel file
 2) Functions were created
 3) Methods were created 
 4) After each method was created, a COMMIT was issued onto Git
 5) Once the project is completed, this was deployed on GitHub
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ### Modules used
 In the suicide file reader, load_workbook was imported from openyxl. This was done to import the excel file into python in order to carry out
